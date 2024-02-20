@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
 import {useHistory, useParams} from "react-router-dom"
 import {readDeck, readCard, updateCard} from "../utils/api/index"
+import CardForm from "./CardForm"
 
 
 function EditCard() {
@@ -51,14 +52,12 @@ function EditCard() {
             const response = await updateCard(card, abortController.signal)
             history.push(`/decks/${deckId}`)
             return response
-        }catch (error){
+        } catch (error){
             console.log(error)
         }
     }
 
-    function cancelHandler () {
-        history.push(`/decks/${deckId}`)
-    }
+    
 
     return (
         <div>
@@ -71,22 +70,8 @@ function EditCard() {
             </nav>
             <div>
                 <h3>Edit Card</h3>
-                <form onSubmit={submitHandler}>
-                    <div className="my-2">
-                        <label>Front</label>
-                        <textarea onChange={changeHandler} name="front"className="form-control" value={card.front}></textarea>
-                    </div>
-                    <div>
-                        <label>Back</label>
-                        <textarea onChange={changeHandler} name="back"className="form-control" value={card.back}></textarea>
-                    </div>
-                    <div className="my-4">
-                        <button onClick={cancelHandler}className="btn btn-secondary">Cancel</button>
-                        <button type="submit" className="btn btn-primary mx-2">Submit</button>
-                    </div>
-                </form>
+                <CardForm submitHandler={submitHandler} card={card} changeHandler={changeHandler}/>
             </div>
-            
         </div>
     )
 }

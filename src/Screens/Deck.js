@@ -29,11 +29,11 @@ function Deck () {
     }, [deckId])
 
     async function deleteHandlerDeck(deck) {
+        const abortController = new AbortController()
         if( window.confirm("Delete this deck? You will not be able to recover from it")){
-            const abortController = new AbortController()
             try{
                 history.push("/")
-                return await deleteDeck(deck.id, abortController.signal)
+                return await deleteDeck(deckId, abortController.signal)
             } catch (error) {
                 console.log(error)
             }
@@ -41,8 +41,7 @@ function Deck () {
                 abortController.abort();
             }
         }
-        history.push("/")
-        return await deleteDeck(deck.id)
+       
     }
 
     async function deleteHandlerCard(card) {

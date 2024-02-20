@@ -24,7 +24,7 @@ function Home () {
     }, [])
 
     async function deleteHandler(deck) {
-        if( window.confirm("Do you want to delete this deck? No Recovery from this ")){
+        if( window.confirm("Delete this deck? You will not be able to recover from it")){
             history.go(0)
             return await deleteDeck(deck.id)
         }

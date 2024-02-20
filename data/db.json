@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Rendering in React",
-      "description": "React's component structure allows for quickly building a complex web application that relies on DOM manipulation."
+      "description": "React's component structure allows for quickly building a complex web application that relies on DOM manipulation. "
     },
     {
       "name": "React Router",
@@ -15,7 +15,7 @@
     {
       "id": 1,
       "front": "Differentiate between Real DOM and Virtual DOM. ",
-      "back": "Virtual DOM updates are faster but do not directly update the HTML",
+      "back": "Virtual DOM updates are faster but do not directly update the HTML ",
       "deckId": 1
     },
     {

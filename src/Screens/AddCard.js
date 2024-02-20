@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
 import {useHistory, useParams } from "react-router-dom"
 import {readDeck, createCard} from "../utils/api/index"
+import CardForm from "./CardForm"
 
 function AddCard() {
     const {deckId} = useParams()
@@ -42,10 +43,6 @@ function AddCard() {
         }
     }
 
-    function doneHandler (event) {
-        history.push(`/decks/${deckId}`)
-    }
-
     return (
         <div>
             <nav aria-label="breadcrumb">
@@ -57,20 +54,9 @@ function AddCard() {
             </nav>
             <div>
                 <h3>{deck.name}: Add Card</h3>
-                <form onSubmit={submitHandler}>
-                    <div className="my-2">
-                        <label>Front</label>
-                        <textarea onChange={changeHandler} name="front"className="form-control" placeholder="Front side of card"></textarea>
-                    </div>
-                    <div>
-                        <label>Back</label>
-                        <textarea onChange={changeHandler} name="back"className="form-control" placeholder="Back side of card"></textarea>
-                    </div>
-                    <div className="my-4">
-                        <button onClick={doneHandler}className="btn btn-secondary">Done</button>
-                        <button type="submit" className="btn btn-primary mx-2">Save</button>
-                    </div>
-                </form>
+            </div>
+            <div>
+                <CardForm submitHandler={submitHandler} card={newCard} changeHandler={changeHandler}/>
             </div>
         </div>
     )
