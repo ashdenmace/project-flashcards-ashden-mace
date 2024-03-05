@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import {Link, useParams, useHistory, useRouteMatch} from "react-router-dom"
 import {readDeck, deleteDeck, deleteCard} from "../utils/api/index"
 
-
 function Deck () {
     const [deck, setDeck] = useState({})
     const [cards, setCards] = useState([])
@@ -67,9 +66,9 @@ function Deck () {
     return (
         <div className="container">
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{deck.name}</li>
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item"><a href="/">Home</a></li>
+                    <li className="breadcrumb-item active" aria-current="page">{deck.name}</li>
                 </ol>
           </nav>
 

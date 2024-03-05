@@ -18,8 +18,6 @@ function Study() {
                 const response = await readDeck(deckId, abortController.signal)
                 setDeck(response)
                 setCards(response.cards)
-                
-    
             }catch (error){
                 console.log(error)
             }
@@ -45,7 +43,6 @@ function Study() {
     }
 
     function NextCard () {
-
         const nextHandler = () => {
             setCurrentCard(currentCard + 1)
             setIsFlipped(false)
@@ -72,8 +69,8 @@ function Study() {
         return (
             <div>
             {cards.map((card, index) => {
-                if (index === currentCard - 1)
-                return (<div className="card">
+                if (index === currentCard - 1){
+                    return (<div className="card" key={index}>
                             <div className="card-body">
                             <h5 className="card-title">Card {currentCard} of {cards.length}</h5>
                                 {!isFlipped ? card.front : card.back}
@@ -84,9 +81,9 @@ function Study() {
                             </div>
                         </div>
                         )
-            })
-            
-            }
+                }
+                return null
+            })}
         </div>
     )
     }
@@ -94,10 +91,10 @@ function Study() {
     return (
         <div>
             <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item"><a href={`/decks/${deck.id}`}>{`${deck.name}`}</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Study</li>
+            <ol className="breadcrumb">
+                <li className="breadcrumb-item"><a href="/">Home</a></li>
+                <li className="breadcrumb-item"><a href={`/decks/${deck.id}`}>{`${deck.name}`}</a></li>
+                <li className="breadcrumb-item active" aria-current="page">Study</li>
             </ol>
             </nav>
 

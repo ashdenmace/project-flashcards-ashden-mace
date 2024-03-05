@@ -46,10 +46,10 @@ function AddCard() {
     return (
         <div>
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item"><a href={`/decks/${deckId}`}>{deck.name}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Card</li>
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item"><a href="/">Home</a></li>
+                    <li className="breadcrumb-item"><a href={`/decks/${deckId}`}>{deck.name}</a></li>
+                    <li className="breadcrumb-item active" aria-current="page">Add Card</li>
                 </ol>
             </nav>
             <div>
